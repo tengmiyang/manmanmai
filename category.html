@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <title></title>
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet/less" href="css/base.less"/>
+    <link rel="stylesheet/less" href="css/category.less"/>
+    <script src="lib/less/less.js"></script>
+
+</head>
+<body>
+<!--头部区域-->
+<header id="header">
+    <a href="#" class ="logo"><img src="images/header_logo.png" alt=""/></a>
+    <a href="#" class="app"> <img src="images/header_app.png" alt=""/></a>
+</header>
+<!--搜索区域-->
+<section id="search">
+    <form action="#">
+        <input type="search" name="" id="" placeholder="请输入要比价的商品">
+        <input type="submit" value="搜索">
+    </form>
+</section>
+<!--分类区域-->
+<section id="category">
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+    </div>
+</section>
+<!--底部信息-->
+<footer id="footer">
+    <div class="row">
+        <div class="col-xs-4">
+            <a href="#">登录</a>
+        </div>
+        <div class="col-xs-4">
+            <a href="#">注册</a>
+        </div>
+        <div class="col-xs-4">
+            <a href="#"><img src="http://www.zuyushop.com/wap/images/top.jpg" alt="">返回顶部</a>
+        </div>
+    </div>
+    <p> <a href="#">手机APP下载</a> <a href="#">慢慢买手机版</a> -- 掌上比价平台</p>
+    <p>m.manmanbuy.com </p>
+</footer>
+<!--分类模板-->
+<script type="text/html" id="categoryTem">
+    {{each result as value i}}
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{i}}" aria-expanded="true" aria-controls="collapseOne" data-titleId="{{value.titleId}}">
+                    {{value.title}}
+                </a>
+            </h4>
+        </div>
+        <div id="collapse{{i}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body">
+            </div>
+        </div>
+    </div>
+    {{/each}}
+
+</script>
+<script type='text/html' id="categoryList">
+        <div class="row">
+            {{each result as value i}}
+            <div class="col-xs-4"><a href="productlist.html?categoryid={{value.categoryId}}">{{value.category}}</a></div>
+            {{/each}}
+        </div>
+</script>
+<script src="lib/jquery/jquery.js"></script>
+<script src="lib/bootstrap/js/bootstrap.js"></script>
+<script src="js/template.js"></script>
+<script src="js/category.js"></script>
+
+</body>
+</html>
